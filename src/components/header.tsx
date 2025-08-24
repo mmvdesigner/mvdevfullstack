@@ -10,9 +10,9 @@ export default function Header() {
           <span className="font-bold text-lg">NextFolio</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <Link href="#about" className="transition-colors hover:text-primary">Sobre</Link>
           <Link href="#skills" className="transition-colors hover:text-primary">Habilidades</Link>
           <Link href="#projects" className="transition-colors hover:text-primary">Projetos</Link>
-          <Link href="#ai-optimizer" className="transition-colors hover:text-primary">Otimizador AI</Link>
           <Link href="#contact" className="transition-colors hover:text-primary">Contato</Link>
         </nav>
       </div>

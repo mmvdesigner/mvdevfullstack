@@ -1,4 +1,4 @@
-import AiOptimizer from '@/components/ai-optimizer';
+import About from '@/components/about';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
@@ -12,9 +12,9 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
+        <About />
         <Skills />
         <Projects />
-        <AiOptimizer />
         <Contact />
       </main>
       <Footer />

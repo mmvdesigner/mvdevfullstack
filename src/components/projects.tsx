@@ -37,23 +37,23 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="container py-20 md:py-24">
+    <section id="projects" className="container py-20 md:py-24 bg-muted/20">
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Projetos em Destaque</h2>
         <p className="mt-3 max-w-xl mx-auto text-muted-foreground">Uma seleção de projetos que demonstram minhas habilidades e paixão por desenvolvimento.</p>
       </div>
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
-          <Card key={project.title} className="overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+          <Card key={project.title} className="overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-secondary/50 border-secondary">
             <CardHeader className="p-0 relative">
               <Image src={project.image} alt={project.title} width={600} height={400} className="object-cover w-full h-auto" data-ai-hint={project.dataAiHint} />
             </CardHeader>
-            <div className="p-6 flex flex-col flex-grow bg-card">
+            <div className="p-6 flex flex-col flex-grow">
               <CardTitle className="leading-tight">{project.title}</CardTitle>
               <div className="mt-2 flex flex-wrap gap-2">
-                {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                {project.tags.map(tag => <Badge key={tag} variant="outline" className="border-primary text-primary">{tag}</Badge>)}
               </div>
-              <CardDescription className="mt-3 flex-grow">{project.description}</CardDescription>
+              <CardDescription className="mt-3 flex-grow text-muted-foreground">{project.description}</CardDescription>
               <CardFooter className="p-0 pt-4 mt-auto flex justify-end gap-2">
                 <Button variant="outline" size="sm" asChild>
                   <Link href={project.github} target="_blank" rel="noopener noreferrer">
