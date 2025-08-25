@@ -13,10 +13,10 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
   const sectionRefs = {
     home: useRef<HTMLDivElement>(null),
-    projects: useRef<HTMLDivElement>(null),
+    projetos: useRef<HTMLDivElement>(null),
     skills: useRef<HTMLDivElement>(null),
-    experience: useRef<HTMLDivElement>(null),
-    contact: useRef<HTMLDivElement>(null),
+    experiencias: useRef<HTMLDivElement>(null),
+    contato: useRef<HTMLDivElement>(null),
   };
 
   useEffect(() => {
@@ -52,16 +52,16 @@ export default function Home() {
         <div ref={sectionRefs.home}>
           <Hero sectionRefs={sectionRefs} />
         </div>
-        <div ref={sectionRefs.projects}>
+        <div ref={sectionRefs.projetos}>
           <Projects />
         </div>
         <div ref={sectionRefs.skills}>
           <Skills />
         </div>
-        <div ref={sectionRefs.experience}>
+        <div ref={sectionRefs.experiencias}>
           <Experience />
         </div>
-        <div ref={sectionRefs.contact}>
+        <div ref={sectionRefs.contato}>
           <Contact />
         </div>
       </main>

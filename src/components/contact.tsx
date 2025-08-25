@@ -44,10 +44,10 @@ export default function Contact() {
     <section id="contact" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Vamos Trabalhar Juntos</h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+          Pronto para transformar suas ideias em realidade? Entre em contato e vamos criar algo incrível juntos
           </p>
         </div>
         
@@ -59,7 +59,7 @@ export default function Contact() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 mb-6">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
+                <h3 className="text-2xl font-bold mb-2">Enviar Mensagem!</h3>
                 <p className="text-gray-400">
                   Thank you for reaching out. I'll get back to you soon!
                 </p>
@@ -131,7 +131,7 @@ export default function Contact() {
           
           {/* Contact Info */}
           <div className="flex flex-col justify-center">
-            <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
+            <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
             <p className="text-gray-400 mb-8">
               I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
             </p>

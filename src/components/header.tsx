@@ -23,7 +23,13 @@ export default function Header({ activeSection, sectionRefs }: HeaderProps) {
     }
   };
   
-  const navItems = ['home', 'projects', 'skills', 'experience', 'contact'];
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'projetos', label: 'Projetos' },
+    { id: 'skills', label: 'Habilidades' },
+    { id: 'experiencias', label: 'Experiências' },
+    { id: 'contato', label: 'Contato' }
+  ];
 
   return (
     <header className="fixed w-full z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
@@ -37,13 +43,13 @@ export default function Header({ activeSection, sectionRefs }: HeaderProps) {
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <button
-              key={item}
-              onClick={() => scrollToSection(item)}
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
               className={`capitalize hover:text-blue-400 transition-colors ${
-                activeSection === item ? 'text-blue-400 font-medium' : 'text-gray-300'
+                activeSection === item.id ? 'text-blue-400 font-medium' : 'text-gray-300'
               }`}
             >
-              {item === 'home' ? 'Home' : item}
+              {item.label}
             </button>
           ))}
         </div>
@@ -62,13 +68,13 @@ export default function Header({ activeSection, sectionRefs }: HeaderProps) {
         <div className="md:hidden bg-gray-900 border-t border-gray-800 py-4 px-4 flex flex-col space-y-4">
           {navItems.map((item) => (
             <button
-              key={item}
-              onClick={() => scrollToSection(item)}
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
               className={`capitalize text-left py-2 hover:text-blue-400 transition-colors ${
-                activeSection === item ? 'text-blue-400 font-medium' : 'text-gray-300'
+                activeSection === item.id ? 'text-blue-400 font-medium' : 'text-gray-300'
               }`}
             >
-              {item === 'home' ? 'Home' : item}
+              {item.label}
             </button>
           ))}
         </div>

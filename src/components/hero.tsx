@@ -36,25 +36,25 @@ export default function Hero({ sectionRefs }: HeroProps) {
       <div className="container mx-auto px-4 z-10 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-            Alex Johnson
+            Messias Vasconcelos
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          Full Stack Developer passionate about building modern, scalable web applications
+          Criando experiências digitais excepcionais com as tecnologias mais modernas do mercado
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button 
-            onClick={() => scrollToSection('projects')}
+            onClick={() => scrollToSection('projetos')}
             className="bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2"
           >
-            View My Work
+            Ver Meus Trabalhos
             <ArrowRight size={18} />
           </button>
           <button 
-            onClick={() => scrollToSection('contact')}
+            onClick={() => scrollToSection('contato')}
             className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105"
           >
-            Get In Touch
+            Entrar em Contato
           </button>
         </div>
         
