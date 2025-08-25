@@ -3,19 +3,19 @@ import { Check } from 'lucide-react';
 
 const experiences = [
   {
-    id: 3,
-    company: 'FreelanceHub',
-    position: 'Desenvolvedor Freelancer',
-    period: 'Jan 2019 - Mai 2020',
-    location: 'Trabalho Remoto',
-    description: 'Desenvolvimento de soluções personalizadas para pequenas e médias empresas. Foco em e-commerce e automação de processos.',
+    id: 1,
+    company: 'Tech Innovation Labs',
+    position: 'Senior Full Stack Developer',
+    period: 'Jan 2023 - Presente',
+    location: 'São Paulo, SP',
+    description: 'Liderando o desenvolvimento de aplicações web modernas com React 18 e Node.js. Responsável pela arquitetura de microserviços e implementação de CI/CD.',
     achievements: [
-      'Completou 40+ projetos freelance',
-      'Avaliação média 4.9/5 em plataformas',
-      'Desenvolveu 8 lojas online',
-      'Automação que economizou 200h/mês'
+      'Aumentou performance das aplicações em 40%',
+      'Liderou equipe de 5 desenvolvedores',
+      'Implementou testes automatizados (95% cobertura)',
+      'Migrou arquitetura para microserviços'
     ],
-    technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL']
+    technologies: ['React', 'TypeScript', 'Node.js', 'AWS', 'Docker', 'GraphQL']
   },
   {
     id: 2,
@@ -33,19 +33,19 @@ const experiences = [
     technologies: ['Next.js', 'PostgreSQL', 'Stripe', 'Vercel', 'Redis']
   },
   {
-    id: 1,
-    company: 'Tech Innovation Labs',
-    position: 'Senior Full Stack Developer',
-    period: 'Jan 2023 - Presente',
-    location: 'São Paulo, SP',
-    description: 'Liderando o desenvolvimento de aplicações web modernas com React 18 e Node.js. Responsável pela arquitetura de microserviços e implementação de CI/CD.',
+    id: 3,
+    company: 'FreelanceHub',
+    position: 'Desenvolvedor Freelancer',
+    period: 'Jan 2019 - Mai 2020',
+    location: 'Trabalho Remoto',
+    description: 'Desenvolvimento de soluções personalizadas para pequenas e médias empresas. Foco em e-commerce e automação de processos.',
     achievements: [
-      'Aumentou performance das aplicações em 40%',
-      'Liderou equipe de 5 desenvolvedores',
-      'Implementou testes automatizados (95% cobertura)',
-      'Migrou arquitetura para microserviços'
+      'Completou 40+ projetos freelance',
+      'Avaliação média 4.9/5 em plataformas',
+      'Desenvolveu 8 lojas online',
+      'Automação que economizou 200h/mês'
     ],
-    technologies: ['React', 'TypeScript', 'Node.js', 'AWS', 'Docker', 'GraphQL']
+    technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL']
   }
 ];
 
@@ -73,7 +73,7 @@ export default function Experience() {
                 className="relative mb-12 flex flex-col md:flex-row items-start"
               >
                 {/* Left/Right container based on index */}
-                <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:order-2'}`}>
+                <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:pr-8' : 'md:pl-8 md:order-2'}`}>
                   <div className="p-6 rounded-xl bg-gray-900 border border-gray-800 text-left">
                     <p className="text-blue-400 font-medium mb-2">{exp.company} | {exp.location}</p>
                     <h3 className="text-xl font-bold text-white mb-1">{exp.position}</h3>
@@ -97,13 +97,13 @@ export default function Experience() {
                 </div>
 
                 {/* Timeline Dot */}
-                <div className={`flex-shrink-0 w-full md:w-auto flex md:flex-col items-center justify-center my-4 md:my-0 ${index % 2 === 0 ? '' : 'md:order-1'}`}>
+                <div className={`flex-shrink-0 w-full md:w-auto flex md:flex-col items-center justify-center my-4 md:my-0 ${index % 2 !== 0 ? '' : 'md:order-1'}`}>
                   <div className="hidden md:flex w-4 h-4 rounded-full bg-blue-500 border-4 border-gray-950"></div>
                   <div className="md:hidden w-3 h-3 rounded-full bg-blue-500 border-2 border-gray-950 absolute left-0 top-1 -translate-x-[5px]"></div>
                 </div>
 
                 {/* Spacer for the other side */}
-                <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8 md:order-1'}`}></div>
+                <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:pl-8' : 'md:pr-8 md:order-1'}`}></div>
               </div>
             ))}
           </div>
