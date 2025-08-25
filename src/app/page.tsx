@@ -1,11 +1,10 @@
 import About from '@/components/about';
 import Contact from '@/components/contact';
-import Experience from '@/components/experience';
+import Testimonials from '@/components/testimonials';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import Hero from '@/components/hero';
-import Projects from '@/components/projects';
-import Skills from '@/components/skills';
+import Services from '@/components/services';
 
 export default function Home() {
   return (
@@ -14,9 +13,8 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <About />
-        <Skills />
-        <Experience />
-        <Projects />
+        <Services />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
@@ -15,20 +15,20 @@ export default function Footer() {
     <footer className="bg-background border-t border-border">
       <div className="container py-8 flex flex-col md:flex-row items-center justify-between">
         <p className="text-sm text-muted-foreground text-center md:text-left mb-4 md:mb-0">
-          © {year} John Doe. Todos os direitos reservados.
+          © {year} Dra. Ana Lúcia. Todos os direitos reservados.
         </p>
         <div className="flex items-center gap-6">
-          <Link href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
-            <Github className="h-6 w-6" />
-            <span className="sr-only">GitHub</span>
+          <Link href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+            <Instagram className="h-6 w-6" />
+            <span className="sr-only">Instagram</span>
           </Link>
-          <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+          <Link href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+            <Facebook className="h-6 w-6" />
+            <span className="sr-only">Facebook</span>
+          </Link>
+           <Link href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
             <Linkedin className="h-6 w-6" />
             <span className="sr-only">LinkedIn</span>
-          </Link>
-           <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
-            <Twitter className="h-6 w-6" />
-            <span className="sr-only">Twitter</span>
           </Link>
         </div>
       </div>

@@ -3,8 +3,8 @@ import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'John Doe - Full-Stack Developer',
-  description: 'Portfólio de um desenvolvedor full-stack, destacando projetos, habilidades e experiência.',
+  title: 'Dra. Ana Lúcia - Psicóloga Comportamental',
+  description: 'Ajudo você a superar desafios e construir uma vida mais plena e feliz.',
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </head>
