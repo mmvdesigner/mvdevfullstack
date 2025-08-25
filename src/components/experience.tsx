@@ -1,67 +1,68 @@
-import { Briefcase } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import React from 'react';
 
-const experienceData = [
+const experiences = [
   {
-    company: 'Tech Solutions Inc.',
-    role: 'Desenvolvedor Full-Stack Sênior',
-    period: 'Jan 2021 - Presente',
-    description: 'Liderei o desenvolvimento de múltiplos projetos de larga escala, utilizando React, Node.js e Kubernetes. Fui responsável pela arquitetura de microsserviços e pela otimização de performance.',
-    tags: ['React', 'Node.js', 'TypeScript', 'Kubernetes', 'AWS'],
+    id: 1,
+    company: 'Tech Innovations Inc',
+    position: 'Senior Full Stack Developer',
+    period: 'Jan 2022 - Present',
+    description: 'Led development of microservices architecture for enterprise SaaS platform, implementing CI/CD pipelines and improving deployment efficiency by 30%.'
   },
   {
-    company: 'Innovate Co.',
-    role: 'Desenvolvedor Full-Stack',
-    period: 'Jun 2018 - Dez 2020',
-    description: 'Desenvolvi e mantive aplicações web completas, participando de todo o ciclo de vida do produto, desde o conceito até o deploy. Colaborei em equipes ágeis para entregar funcionalidades de alta qualidade.',
-    tags: ['Angular', 'Java', 'Spring Boot', 'Docker', 'GCP'],
+    id: '2',
+    company: 'Digital Solutions',
+    position: 'Full Stack Developer',
+    period: 'March 2020 - Dec 2021',
+    description: 'Developed and maintained client-facing applications using React and Node.js while collaborating with cross-functional teams.'
   },
   {
-    company: 'Web Starters',
-    role: 'Desenvolvedor Front-end Júnior',
-    period: 'Jul 2016 - Mai 2018',
-    description: 'Iniciei minha carreira focando em criar interfaces de usuário responsivas e interativas com HTML, CSS e JavaScript. Aprendi os fundamentos de frameworks como Vue.js.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Vue.js'],
-  },
+    id: 3,
+    company: 'WebCraft Studios',
+    position: 'Frontend Developer',
+    period: 'June 2018 - Feb 2020',
+    description: 'Created responsive web interfaces and optimized application performance, resulting in 40% faster load times.'
+  }
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="container py-20 md:py-32 bg-secondary/20">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-bold tracking-tight text-foreground">Experiência Profissional</h2>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Minha jornada no mundo do desenvolvimento de software.
-        </p>
-      </div>
-      <div className="relative mt-12 max-w-4xl mx-auto">
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-border"></div>
-        {experienceData.map((item, index) => (
-          <div key={index} className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-              <div className={`absolute top-1/2 transform -translate-y-1/2 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center ${index % 2 === 0 ? 'right-[calc(50%-1rem)]' : 'left-[calc(50%-1rem)]'}`}>
-                <Briefcase className="h-4 w-4" />
+    <section id="experience" className="py-20 bg-gray-950">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+          <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
+        </div>
+        
+        <div className="max-w-3xl mx-auto">
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-800 transform md:translate-x-px"></div>
+            
+            {/* Timeline Items */}
+            {experiences.map((exp, index) => (
+              <div
+                key={exp.id}
+                className="relative mb-12 md:flex md:items-center"
+              >
+                 <div className="md:w-1/2 md:pr-8">
+                  <div className={`
+                    p-6 rounded-xl bg-gray-800/50 border border-gray-800
+                    ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}
+                  `}>
+                      <h3 className="text-xl font-bold text-white mb-1">{exp.position}</h3>
+                      <p className="text-blue-400 font-medium mb-2">{exp.company}</p>
+                      <p className="text-gray-400 text-sm mb-3">{exp.period}</p>
+                      <p className="text-gray-300">{exp.description}</p>
+                    </div>
+                 </div>
+                 <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-gray-950"></div>
+                 <div className="md:hidden absolute top-4 left-0 -translate-x-[5px] w-3 h-3 rounded-full bg-blue-500 border-3 border-gray-950"></div>
+                 <div className={`md:w-1/2 ${index % 2 === 0 ? '' : 'md:pl-8'}`}></div>
+
               </div>
-              <Card className="bg-card/80 backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50">
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-primary">{item.role}</CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    {item.company} | {item.period}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-foreground/80">{item.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2 justify-start">
-                    {item.tags.map(tag => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

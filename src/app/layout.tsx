@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "John Doe - Full-Stack Developer",
-  description: "Portfólio de John Doe, um desenvolvedor full-stack apaixonado por criar soluções inovadoras.",
+  title: "Full Stack Developer Portfolio",
+  description: "Full Stack Developer passionate about building modern, scalable web applications.",
 };
 
 export default function RootLayout({
@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth dark">
-      <body className={`${inter.className} antialiased`}>
+    <html lang="en" className="!scroll-smooth">
+      <body className={`${inter.className} bg-gray-950 text-gray-100 font-sans`}>
         {children}
         <Toaster />
       </body>

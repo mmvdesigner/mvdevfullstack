@@ -1,35 +1,26 @@
-"use client";
-
 import { Github, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
 export default function Footer() {
-  const [year, setYear] = useState(new Date().getFullYear());
-
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
-
   return (
-    <footer className="bg-secondary/20 border-t border-border">
-      <div className="container py-8 flex flex-col md:flex-row items-center justify-between">
-        <p className="text-sm text-muted-foreground text-center md:text-left mb-4 md:mb-0">
-          © {year} John Doe. Todos os direitos reservados.
-        </p>
-        <div className="flex items-center gap-6">
-          <Link href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
-            <Github className="h-6 w-6" />
-            <span className="sr-only">GitHub</span>
-          </Link>
-          <Link href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
-            <Linkedin className="h-6 w-6" />
-            <span className="sr-only">LinkedIn</span>
-          </Link>
-           <Link href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
-            <Twitter className="h-6 w-6" />
-            <span className="sr-only">Twitter</span>
-          </Link>
+    <footer className="bg-gray-950 border-t border-gray-800 py-8">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="text-gray-400 text-sm mb-4 md:mb-0">
+            © {new Date().getFullYear()} Alex Johnson. All rights reserved.
+          </div>
+          
+          <div className="flex space-x-6">
+            <Link href="https://github.com/alexjohnson" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Github size={20} />
+            </Link>
+            <Link href="https://linkedin.com/in/alexjohnson" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Linkedin size={20} />
+            </Link>
+            <Link href="https://twitter.com/alexjohnson" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Twitter size={20} />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
