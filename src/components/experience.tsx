@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 
 const experiences = [
   {
-    id: 1,
+    id: 3,
     company: 'Tech Innovation Labs',
     position: 'Senior Full Stack Developer',
     period: 'Jan 2023 - Presente',
@@ -33,7 +33,7 @@ const experiences = [
     technologies: ['Next.js', 'PostgreSQL', 'Stripe', 'Vercel', 'Redis']
   },
   {
-    id: 3,
+    id: 1,
     company: 'FreelanceHub',
     position: 'Desenvolvedor Freelancer',
     period: 'Jan 2019 - Mai 2020',
@@ -61,26 +61,28 @@ export default function Experience() {
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-0 md:left-1/2 top-5 bottom-0 w-0.5 bg-gray-800 transform md:-translate-x-px"></div>
-            
-            {/* Timeline Items */}
-            {experiences.map((exp, index) => (
-              <div
-                key={exp.id}
-                className="relative mb-12 flex flex-col md:flex-row items-start"
-              >
-                {/* Left/Right container based on index */}
-                <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:pr-8' : 'md:pl-8 md:order-2'}`}>
-                  <div className="p-6 rounded-xl bg-gray-900 border border-gray-800 text-left">
-                    <p className="text-blue-400 font-medium mb-2">{exp.company} | {exp.location}</p>
-                    <h3 className="text-xl font-bold text-white mb-1">{exp.position}</h3>
-                    <p className="text-gray-400 text-sm mb-4">{exp.period}</p>
-                    <p className="text-gray-300 mb-4">{exp.description}</p>
-                    <h4 className="font-semibold mb-2">Principais Conquistas:</h4>
-                    <ul className="space-y-2 mb-4">
+        <div className="relative max-w-4xl mx-auto">
+          {/* Timeline Line */}
+          <div className="absolute left-4 md:left-1/2 w-0.5 h-full bg-gray-800 transform md:-translate-x-1/2"></div>
+          
+          {/* Timeline Items */}
+          {experiences.map((exp, index) => (
+            <div key={exp.id} className="relative pl-12 md:pl-0 mb-12 last:mb-0">
+              {/* Mobile and Desktop Dot */}
+              <div className="absolute left-4 top-1 w-3 h-3 rounded-full bg-blue-500 border-2 border-gray-950 md:left-1/2 md:w-4 md:h-4 md:transform md:-translate-x-1/2 md:border-4"></div>
+              
+              <div className={`md:flex ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                 <div className="md:w-1/2"></div>
+                 <div className="md:w-1/2 md:px-6">
+                  <div className="p-6 rounded-xl bg-gray-900 border border-gray-800">
+                    <div className={`text-left ${index % 2 === 0 ? 'md:text-right' : ''}`}>
+                      <p className="text-blue-400 font-medium mb-2">{exp.company} | {exp.location}</p>
+                      <h3 className="text-xl font-bold text-white mb-1">{exp.position}</h3>
+                      <p className="text-gray-400 text-sm mb-4">{exp.period}</p>
+                    </div>
+                    <p className="text-gray-300 mb-4 text-left">{exp.description}</p>
+                    <h4 className="font-semibold mb-2 text-left">Principais Conquistas:</h4>
+                    <ul className="space-y-2 mb-4 text-left">
                       {exp.achievements.map((ach, i) => (
                         <li key={i} className="flex items-start">
                           <Check size={16} className="text-green-400 mr-2 mt-1 flex-shrink-0" />
@@ -88,25 +90,16 @@ export default function Experience() {
                         </li>
                       ))}
                     </ul>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-start">
                       {exp.technologies.map((tech, i) => (
                         <span key={i} className="bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full">{tech}</span>
                       ))}
                     </div>
                   </div>
-                </div>
-
-                {/* Timeline Dot */}
-                <div className={`flex-shrink-0 w-full md:w-auto flex md:flex-col items-center justify-center my-4 md:my-0 ${index % 2 !== 0 ? '' : 'md:order-1'}`}>
-                  <div className="hidden md:flex w-4 h-4 rounded-full bg-blue-500 border-4 border-gray-950"></div>
-                  <div className="md:hidden w-3 h-3 rounded-full bg-blue-500 border-2 border-gray-950 absolute left-0 top-1 -translate-x-[5px]"></div>
-                </div>
-
-                {/* Spacer for the other side */}
-                <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:pl-8' : 'md:pr-8 md:order-1'}`}></div>
+                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
