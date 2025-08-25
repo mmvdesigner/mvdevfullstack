@@ -1,10 +1,13 @@
-import type { Metadata } from 'next';
-import { Toaster } from '@/components/ui/toaster';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Dra. Ana Lúcia - Psicóloga Comportamental',
-  description: 'Ajudo você a superar desafios e construir uma vida mais plena e feliz.',
+  title: "John Doe - Full-Stack Developer",
+  description: "Portfólio de John Doe, um desenvolvedor full-stack apaixonado por criar soluções inovadoras.",
 };
 
 export default function RootLayout({
@@ -13,16 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-body antialiased bg-background text-foreground">
+    <html lang="pt-BR" className="scroll-smooth dark">
+      <body className={`${inter.className} antialiased`}>
         {children}
         <Toaster />
       </body>
