@@ -44,13 +44,13 @@ export default function Skills() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Habilidades & Tecnologias</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Uma visão geral do meu arsenal técnico, do frontend ao backend e DevOps.
+            Dominando as tecnologias mais modernas e em constante evolução para criar soluções inovadoras
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="flex flex-col gap-12">
           {/* Frontend & Backend */}
-          <div className="space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h3 className="text-xl font-semibold mb-6 flex items-center gap-2"><Code size={24} className="text-primary" /> Frontend</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
