@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import React from 'react';
 
 interface HeroProps {
@@ -21,46 +21,57 @@ export default function Hero({ sectionRefs }: HeroProps) {
 
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://roboneo-public.meitudata.com/public/html_imgs/04m6e9qac3y7g7a2/4ae3bb45326446f095287cd51e8faa03.png" 
-          alt="Tech background"
-          data-ai-hint="tech background"
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 via-gray-950/80 to-gray-950"></div>
+       <div className="absolute inset-0 z-0 bg-background">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
       </div>
       
       {/* Hero Content */}
-      <div className="container mx-auto px-4 z-10 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-            Messias Vasconcelos
-          </span>
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          Criando experiências digitais excepcionais com as tecnologias mais modernas do mercado
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button 
-            onClick={() => scrollToSection('projetos')}
-            className="bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2"
-          >
-            Ver Meus Trabalhos
-            <ArrowRight size={18} />
-          </button>
-          <button 
-            onClick={() => scrollToSection('contato')}
-            className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105"
-          >
-            Entrar em Contato
-          </button>
-        </div>
-        
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={24} className="text-blue-400" />
+      <div className="container mx-auto px-4 z-10">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="text-center md:text-left">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+                    <span className="block">Desenvolvendo</span>
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                    experiências
+                    </span>
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">
+                    digitais que
+                    </span>
+                    <span className="block">funcionam.</span>
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg mx-auto md:mx-0">
+                  Edifico e otimizo da busca em SEO ao deploy, Node.js a soluções no-code, front-end a processos digitais robustos.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                <a 
+                    href="https://wa.me/55DD9XXXXXXXX?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gradient-to-r from-blue-500 to-primary hover:opacity-90 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                >
+                    <MessageCircle size={18} />
+                    Fale comigo pelo whatsapp
+                </a>
+                <button 
+                    onClick={() => scrollToSection('projetos')}
+                    className="bg-secondary hover:bg-muted text-foreground font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105"
+                >
+                    Ver Projetos
+                </button>
+                </div>
+            </div>
+            <div className='hidden md:block'>
+                <div className='bg-card p-4 rounded-lg border border-border shadow-lg'>
+                    <pre className='text-sm text-gray-400'><code>
+<span className='text-purple-400'>const</span> coder = {'{'}<br />
+  <span className='text-blue-400'>name</span>: <span className='text-green-400'>'Messias Vasconcelos'</span>,<br />
+  <span className='text-blue-400'>skills</span>: [<span className='text-green-400'>'React'</span>, <span className='text-green-400'>'Node.js'</span>, <span className='text-green-400'>'Next.js'</span>],<br />
+  <span className='text-blue-400'>hardWorker</span>: <span className='text-orange-400'>true</span>,<br />
+  <span className='text-blue-400'>problemSolver</span>: <span className='text-orange-400'>true</span><br />
+{'}'};
+                    </code></pre>
+                </div>
+            </div>
         </div>
       </div>
     </section>

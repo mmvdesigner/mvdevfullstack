@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { Menu, X, Code } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from 'next/link';
 
 interface HeaderProps {
@@ -24,39 +24,40 @@ export default function Header({ activeSection, sectionRefs }: HeaderProps) {
   };
   
   const navItems = [
-    { id: 'home', label: 'Home' },
+    { id: 'sobre', label: 'Sobre' },
+    { id: 'habilidades', label: 'Habilidades' },
     { id: 'projetos', label: 'Projetos' },
-    { id: 'skills', label: 'Habilidades' },
-    { id: 'experiencias', label: 'Experiências' },
+    { id: 'depoimentos', label: 'Depoimentos'},
     { id: 'contato', label: 'Contato' }
   ];
 
   return (
-    <header className="fixed w-full z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+    <header className="fixed w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-blue-400 flex items-center space-x-2">
-          <Code size={24} />
-          <span>DevPortfolio</span>
+        <Link href="/" className="text-xl font-bold text-foreground flex items-center space-x-2">
+          <span className='text-primary'>{'<'}</span>
+          <span>messiasfullstack</span>
+          <span className='text-primary'>{'/>'}</span>
         </Link>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`capitalize hover:text-blue-400 transition-colors ${
-                activeSection === item.id ? 'text-blue-400 font-medium' : 'text-gray-300'
+              className={`capitalize text-muted-foreground hover:text-foreground transition-colors ${
+                activeSection === item.id ? '!text-foreground font-medium' : ''
               }`}
             >
               {item.label}
             </button>
           ))}
-        </div>
+        </nav>
         
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-gray-100"
+          className="md:hidden text-foreground"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -65,19 +66,19 @@ export default function Header({ activeSection, sectionRefs }: HeaderProps) {
       
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-gray-900 border-t border-gray-800 py-4 px-4 flex flex-col space-y-4">
+        <nav className="md:hidden bg-background border-t border-border py-4 px-4 flex flex-col space-y-4">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`capitalize text-left py-2 hover:text-blue-400 transition-colors ${
-                activeSection === item.id ? 'text-blue-400 font-medium' : 'text-gray-300'
+              className={`capitalize text-left py-2 text-muted-foreground hover:text-foreground transition-colors ${
+                activeSection === item.id ? '!text-foreground font-medium' : ''
               }`}
             >
               {item.label}
             </button>
           ))}
-        </div>
+        </nav>
       )}
     </header>
   );

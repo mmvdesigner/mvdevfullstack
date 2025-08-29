@@ -1,7 +1,10 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
+import { Phone, Mail, MapPin, Send } from 'lucide-react'
+import { Button } from './ui/button'
+import { Input } from './ui/input'
+import { Textarea } from './ui/textarea'
 
 interface FormData {
   name: string
@@ -32,7 +35,6 @@ export default function Contact() {
       setIsFormSubmitting(false)
       setFormSuccess(true)
       
-      // Reset form after success
       setTimeout(() => {
         // setFormSuccess(false) // Keep success message
         setFormData({ name: '', email: '', message: '' })
@@ -41,148 +43,122 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-900">
+    <section id="contato" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Vamos Trabalhar Juntos</h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-          Pronto para transformar suas ideias em realidade? Entre em contato e vamos criar algo incrível juntos
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Pronto para dar o próximo passo? Vamos conversar sobre como posso ajudar a tornar seu projeto uma realidade.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="bg-card border border-border rounded-xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Info */}
+          <div className="flex flex-col justify-between">
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Entre em Contato</h3>
+              <div className="space-y-6">
+                <a 
+                  href="mailto:contato@messias.dev"
+                  className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
+                >
+                  <div className="bg-secondary p-3 rounded-lg mr-4">
+                    <Mail size={20} className='text-foreground' />
+                  </div>
+                  <div>
+                    <span className='text-foreground font-semibold block'>Email</span>
+                    <span>contato@messias.dev</span>
+                  </div>
+                </a>
+                <a 
+                  href="tel:+5511999999999"
+                  className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
+                >
+                  <div className="bg-secondary p-3 rounded-lg mr-4">
+                    <Phone size={20} className='text-foreground' />
+                  </div>
+                  <div>
+                    <span className='text-foreground font-semibold block'>Telefone</span>
+                    <span>+55 (11) 99999-9999</span>
+                  </div>
+                </a>
+                <div className="flex items-center text-muted-foreground">
+                  <div className="bg-secondary p-3 rounded-lg mr-4">
+                    <MapPin size={20} className='text-foreground' />
+                  </div>
+                  <div>
+                    <span className='text-foreground font-semibold block'>Localização</span>
+                    <span>São Paulo, Brasil</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='bg-secondary rounded-lg p-4'>
+                <h4 className='font-bold flex items-center gap-2 mb-2'>
+                    <Send size={16} className='text-primary' />
+                    Siga-me
+                </h4>
+                <p className='text-sm text-muted-foreground'>Acompanhe meu trabalho e posts nas redes sociais para se manter atualizado.</p>
+            </div>
+          </div>
+
           {/* Contact Form */}
-          <div className="bg-gray-800/50 rounded-xl p-6 md:p-8 border border-gray-800">
+          <div className="bg-background/50 rounded-xl">
             {formSuccess ? (
               <div className="text-center py-12 flex flex-col items-center justify-center h-full">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 mb-6">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Enviar Mensagem!</h3>
-                <p className="text-gray-400">
-                  Thank you for reaching out. I'll get back to you soon!
+                <h3 className="text-2xl font-bold mb-2">Mensagem Enviada!</h3>
+                <p className="text-muted-foreground">
+                  Obrigado por entrar em contato. Retornarei em breve!
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Name
+                  <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-2">
+                    Nome
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full bg-gray-800 border border-gray-700 text-gray-100 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="John Doe"
+                  <Input
+                    type="text" id="name" name="name"
+                    value={formData.name} onChange={handleInputChange} required
+                    placeholder="Seu nome completo"
                   />
                 </div>
-                
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email Address
+                  <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">
+                    Email
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full bg-gray-800 border border-gray-700 text-gray-100 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="john@example.com"
+                  <Input
+                    type="email" id="email" name="email"
+                    value={formData.email} onChange={handleInputChange} required
+                    placeholder="seuemail@exemplo.com"
                   />
                 </div>
-                
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Message
+                  <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-2">
+                    Sua mensagem
                   </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={5}
-                    className="w-full bg-gray-800 border border-gray-700 text-gray-100 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
-                    placeholder="Tell me about your project or inquiry..."
-                  ></textarea>
+                  <Textarea
+                    id="message" name="message" value={formData.message}
+                    onChange={handleInputChange} required rows={5}
+                    placeholder="Conte-me como posso ajudar..."
+                  />
                 </div>
-                
-                <button
+                <Button
                   type="submit"
                   disabled={isFormSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full bg-gradient-to-r from-blue-500 to-primary text-white font-medium"
                 >
                   {isFormSubmitting ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                   ) : (
-                    <>Send Message</>
+                    <>Enviar Mensagem</>
                   )}
-                </button>
+                </Button>
               </form>
             )}
-          </div>
-          
-          {/* Contact Info */}
-          <div className="flex flex-col justify-center">
-            <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
-            <p className="text-gray-400 mb-8">
-              I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
-            </p>
-            
-            <div className="space-y-6">
-              <a 
-                href="mailto:contact@example.com"
-                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors group"
-              >
-                <div className="bg-gray-800 p-3 rounded-lg mr-4 group-hover:bg-blue-600/20 transition-colors">
-                  <Mail size={20} />
-                </div>
-                <span>contact@example.com</span>
-              </a>
-              
-              <a 
-                href="https://github.com/alexjohnson"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors group"
-              >
-                <div className="bg-gray-800 p-3 rounded-lg mr-4 group-hover:bg-blue-600/20 transition-colors">
-                  <Github size={20} />
-                </div>
-                <span>github.com/alexjohnson</span>
-              </a>
-              
-              <a 
-                href="https://linkedin.com/in/alexjohnson"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors group"
-              >
-                <div className="bg-gray-800 p-3 rounded-lg mr-4 group-hover:bg-blue-600/20 transition-colors">
-                  <Linkedin size={20} />
-                </div>
-                <span>linkedin.com/in/alexjohnson</span>
-              </a>
-              
-              <a 
-                href="https://twitter.com/alexjohnson"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors group"
-              >
-                <div className="bg-gray-800 p-3 rounded-lg mr-4 group-hover:bg-blue-600/20 transition-colors">
-                  <Twitter size={20} />
-                </div>
-                <span>twitter.com/alexjohnson</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>

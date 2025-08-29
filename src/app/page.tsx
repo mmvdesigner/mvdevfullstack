@@ -5,7 +5,8 @@ import Header from '@/components/header';
 import Hero from '@/components/hero';
 import Projects from '@/components/projects';
 import Skills from '@/components/skills';
-import Experience from '@/components/experience';
+import About from '@/components/about';
+import Testimonials from '@/components/testimonials';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
 
@@ -13,16 +14,17 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
   const sectionRefs = {
     home: useRef<HTMLDivElement>(null),
+    sobre: useRef<HTMLDivElement>(null),
+    habilidades: useRef<HTMLDivElement>(null),
     projetos: useRef<HTMLDivElement>(null),
-    skills: useRef<HTMLDivElement>(null),
-    experiencias: useRef<HTMLDivElement>(null),
+    depoimentos: useRef<HTMLDivElement>(null),
     contato: useRef<HTMLDivElement>(null),
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
-      let currentSection = '';
+      let currentSection = 'home';
 
       for (const [section, ref] of Object.entries(sectionRefs)) {
         if (ref.current) {
@@ -52,14 +54,17 @@ export default function Home() {
         <div ref={sectionRefs.home}>
           <Hero sectionRefs={sectionRefs} />
         </div>
+        <div ref={sectionRefs.sobre}>
+          <About />
+        </div>
+        <div ref={sectionRefs.habilidades}>
+          <Skills />
+        </div>
         <div ref={sectionRefs.projetos}>
           <Projects />
         </div>
-        <div ref={sectionRefs.skills}>
-          <Skills />
-        </div>
-        <div ref={sectionRefs.experiencias}>
-          <Experience />
+        <div ref={sectionRefs.depoimentos}>
+          <Testimonials />
         </div>
         <div ref={sectionRefs.contato}>
           <Contact />
