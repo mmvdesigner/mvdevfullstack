@@ -103,7 +103,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-background/50 rounded-xl">
+          <div className="bg-background/50 rounded-xl p-6 border border-border">
             {formSuccess ? (
               <div className="text-center py-12 flex flex-col items-center justify-center h-full">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 mb-6">
