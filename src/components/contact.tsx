@@ -1,46 +1,58 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser';
 import { Phone, Mail, MapPin, Send } from 'lucide-react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
-
-interface FormData {
-  name: string
-  email: string
-  message: string
-}
+import { useToast } from '@/hooks/use-toast';
 
 export default function Contact() {
+  const { toast } = useToast();
+  const form = useRef<HTMLFormElement>(null);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
-  })
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsFormSubmitting(true);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsFormSubmitting(true)
+    if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+      console.error("EmailJS environment variables not configured");
+      toast({
+        title: "Erro de Configuração",
+        description: "O serviço de e-mail não está configurado corretamente. Por favor, entre em contato com o administrador.",
+        variant: "destructive",
+      });
+      setIsFormSubmitting(false);
+      return;
+    }
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsFormSubmitting(false)
-      setFormSuccess(true)
-      
-      setTimeout(() => {
-        // setFormSuccess(false) // Keep success message
-        setFormData({ name: '', email: '', message: '' })
-      }, 3000)
-    }, 1500)
-  }
+    if(form.current) {
+        emailjs.sendForm(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+            form.current,
+            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        )
+        .then(() => {
+            setFormSuccess(true);
+            setIsFormSubmitting(false);
+            if (form.current) {
+                form.current.reset();
+            }
+        }, (error) => {
+            console.log('FAILED...', error.text);
+            toast({
+                title: "Falha no Envio",
+                description: "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.",
+                variant: "destructive",
+            });
+            setIsFormSubmitting(false);
+        });
+    }
+  };
 
   return (
     <section id="contato" className="py-20">
@@ -105,7 +117,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-background/50 rounded-xl p-6 border border-border">
+          <div className="bg-card rounded-xl p-6 border border-border">
             {formSuccess ? (
               <div className="text-center py-12 flex flex-col items-center justify-center h-full">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 mb-6">
@@ -117,14 +129,14 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={form} onSubmit={sendEmail} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-2">
+                  <label htmlFor="nome" className="block text-sm font-medium text-muted-foreground mb-2">
                     Nome
                   </label>
                   <Input
-                    type="text" id="name" name="name"
-                    value={formData.name} onChange={handleInputChange} required
+                    type="text" id="nome" name="nome"
+                    required
                     placeholder="Seu nome completo"
                   />
                 </div>
@@ -134,17 +146,27 @@ export default function Contact() {
                   </label>
                   <Input
                     type="email" id="email" name="email"
-                    value={formData.email} onChange={handleInputChange} required
+                    required
                     placeholder="seuemail@exemplo.com"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground mb-2">
+                    Assunto
+                  </label>
+                  <Input
+                    type="text" id="subject" name="subject"
+                    required
+                    placeholder="Assunto da mensagem"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="mensagem" className="block text-sm font-medium text-muted-foreground mb-2">
                     Sua mensagem
                   </label>
                   <Textarea
-                    id="message" name="message" value={formData.message}
-                    onChange={handleInputChange} required rows={5}
+                    id="mensagem" name="mensagem" 
+                    required rows={5}
                     placeholder="Conte-me como posso ajudar..."
                   />
                 </div>
