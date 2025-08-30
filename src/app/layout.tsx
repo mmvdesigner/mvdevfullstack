@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+import { portfolioData } from "@/data/portfolio";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Messias Vasconcelos | Desenvolvedor Full Stack",
-  description: "Desenvolvedor Full Stack apaixonado por criar experiências digitais que funcionam.",
+  title: portfolioData.meta.title,
+  description: portfolioData.meta.description,
 };
 
 export default function RootLayout({

@@ -1,35 +1,6 @@
 import Image from 'next/image';
 import { Star } from 'lucide-react';
-
-const testimonials = [
-  {
-    id: 1,
-    name: 'João Silva',
-    title: 'CEO da StartupX',
-    quote: 'O Messias é um profissional excepcional. Ele transformou nossa visão em um produto robusto e escalável. Sua expertise técnica e comprometimento foram cruciais para o sucesso do nosso projeto.',
-    avatarUrl: 'https://picsum.photos/100/100',
-    rating: 5,
-    hint: "man portrait"
-  },
-  {
-    id: 2,
-    name: 'Julia Santos',
-    title: 'Gerente de Produto na InovaTech',
-    quote: 'Trabalhar com o Messias foi incrível. Ele é proativo, tem ótima comunicação e entrega um código de altíssima qualidade. Recomendo fortemente seus serviços para qualquer desafio de desenvolvimento.',
-    avatarUrl: 'https://picsum.photos/101/101',
-    rating: 5,
-    hint: "woman portrait"
-  },
-  {
-    id: 3,
-    name: 'Carlos Lima',
-    title: 'CTO da Soluções Digitais',
-    quote: 'Poucos desenvolvedores têm a visão completa de full-stack que o Messias possui. Ele navega com facilidade entre o front-end e o back-end, sempre propondo as melhores soluções.',
-    avatarUrl: 'https://picsum.photos/102/102',
-    rating: 5,
-    hint: "man smiling"
-  },
-];
+import { portfolioData } from '@/data/portfolio';
 
 const Rating = ({ rating }: { rating: number }) => (
   <div className="flex items-center gap-1">
@@ -44,13 +15,14 @@ const Rating = ({ rating }: { rating: number }) => (
 );
 
 export default function Testimonials() {
+  const { title, description, testimonials } = portfolioData.testimonials;
   return (
     <section id="depoimentos" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">O que dizem meus clientes</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Feedbacks de parceiros e clientes com quem tive o prazer de colaborar.
+            {description}
           </p>
         </div>
         

@@ -1,13 +1,14 @@
 'use client';
 
-import { MessageCircle } from 'lucide-react';
 import React from 'react';
+import { portfolioData } from '@/data/portfolio';
 
 interface HeroProps {
   sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> };
 }
 
 export default function Hero({ sectionRefs }: HeroProps) {
+  const { headline, subheadline, ctaButtons, codeBlock } = portfolioData.hero;
 
   const scrollToSection = (sectionId: string) => {
     const ref = sectionRefs[sectionId as keyof typeof sectionRefs];
@@ -30,33 +31,33 @@ export default function Hero({ sectionRefs }: HeroProps) {
         <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-                    <span className="block">Desenvolvendo</span>
+                    <span className="block">{headline.line1}</span>
                     <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
-                    experiências
+                    {headline.line2}
                     </span>
                     <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">
-                    digitais que
+                    {headline.line3}
                     </span>
-                    <span className="block">funcionam.</span>
+                    <span className="block">{headline.line4}</span>
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg mx-auto md:mx-0">
-                  Fullstack Developer especializado em React, Node.js e soluções escaláveis. Transformo ideias em produtos digitais de alta qualidade.
+                  {subheadline}
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                <a 
-                    href="https://wa.me/55DD9XXXXXXXX?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-blue-500 to-primary hover:opacity-90 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2"
-                >
-                    Fale comigo sobre seu projeto
-                </a>
-                <button 
-                    onClick={() => scrollToSection('projetos')}
-                    className="bg-secondary hover:bg-muted text-foreground font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105"
-                >
-                    Ver Projetos
-                </button>
+                  <a 
+                      href={ctaButtons.primary.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gradient-to-r from-blue-500 to-primary hover:opacity-90 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                  >
+                      {ctaButtons.primary.text}
+                  </a>
+                  <button 
+                      onClick={() => scrollToSection(ctaButtons.secondary.scrollTo)}
+                      className="bg-secondary hover:bg-muted text-foreground font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105"
+                  >
+                      {ctaButtons.secondary.text}
+                  </button>
                 </div>
             </div>
             <div className='hidden md:block'>
@@ -67,13 +68,13 @@ export default function Hero({ sectionRefs }: HeroProps) {
                       <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                       <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
-                    <p className="text-sm text-muted-foreground ml-auto">portfolio.tsx</p>
+                    <p className="text-sm text-muted-foreground ml-auto">{codeBlock.fileName}</p>
                   </div>
                     <pre className='text-sm text-gray-400'><code>
-<span className='text-purple-400'>const</span> <span className='text-blue-300'>developer</span> = {'{'}<br />
-  <span className='text-blue-400'>name</span>: <span className='text-green-400'>'Seu Nome'</span>,<br />
-  <span className='text-blue-400'>skills</span>: [<span className='text-green-400'>'React'</span>, <span className='text-green-400'>'Node.js'</span>, <span className='text-green-400'>'TypeScript'</span>],<br />
-  <span className='text-blue-400'>passion</span>: <span className='text-green-400'>'Resolver problemas complexos'</span><br />
+<span className='text-purple-400'>const</span> <span className='text-blue-300'>{codeBlock.variable}</span> = {'{'}<br />
+  <span className='text-blue-400'>name</span>: <span className='text-green-400'>'{codeBlock.name}'</span>,<br />
+  <span className='text-blue-400'>skills</span>: [<span className='text-green-400'>'{codeBlock.skills.join("', '")}'</span>],<br />
+  <span className='text-blue-400'>passion</span>: <span className='text-green-400'>'{codeBlock.passion}'</span><br />
 {'}'};
                     </code></pre>
                 </div>

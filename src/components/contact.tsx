@@ -7,12 +7,14 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
 import { useToast } from '@/hooks/use-toast';
+import { portfolioData } from '@/data/portfolio';
 
 export default function Contact() {
   const { toast } = useToast();
-  const form = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
+  const { title, description, form: formData, info, tip } = portfolioData.contact;
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,18 +31,18 @@ export default function Contact() {
       return;
     }
 
-    if(form.current) {
+    if(formRef.current) {
         emailjs.sendForm(
             process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
             process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-            form.current,
+            formRef.current,
             process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
         )
         .then(() => {
             setFormSuccess(true);
             setIsFormSubmitting(false);
-            if (form.current) {
-                form.current.reset();
+            if (formRef.current) {
+                formRef.current.reset();
             }
         }, (error) => {
             console.log('FAILED...', error.text);
@@ -58,9 +60,9 @@ export default function Contact() {
     <section id="contato" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Vamos Trabalhar Juntos</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Pronto para dar o próximo passo? Vamos conversar sobre como posso ajudar a tornar seu projeto uma realidade.
+            {description}
           </p>
         </div>
         
@@ -68,30 +70,30 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Entre em Contato</h3>
+              <h3 className="text-2xl font-bold mb-6">{info.title}</h3>
               <div className="space-y-6">
                 <a 
-                  href="mailto:contato@messias.dev"
+                  href={`mailto:${info.email.address}`}
                   className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
                 >
                   <div className="bg-secondary p-3 rounded-lg mr-4">
                     <Mail size={20} className='text-foreground' />
                   </div>
                   <div>
-                    <span className='text-foreground font-semibold block'>Email</span>
-                    <span>mvdevfullstack@gmail.com</span>
+                    <span className='text-foreground font-semibold block'>{info.email.label}</span>
+                    <span>{info.email.address}</span>
                   </div>
                 </a>
                 <a 
-                  href="tel:+5588999382994"
+                  href={`tel:${info.phone.number.replace(/\s/g, '')}`}
                   className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
                 >
                   <div className="bg-secondary p-3 rounded-lg mr-4">
                     <Phone size={20} className='text-foreground' />
                   </div>
                   <div>
-                    <span className='text-foreground font-semibold block'>Telefone</span>
-                    <span>+55 (88) 99938-2994</span>
+                    <span className='text-foreground font-semibold block'>{info.phone.label}</span>
+                    <span>{info.phone.number}</span>
                   </div>
                 </a>
                 <div className="flex items-center text-muted-foreground">
@@ -99,19 +101,18 @@ export default function Contact() {
                     <MapPin size={20} className='text-foreground' />
                   </div>
                   <div>
-                    <span className='text-foreground font-semibold block'>Localização</span>
-                    <span>Acaraú-CE, Brasil</span>
+                    <span className='text-foreground font-semibold block'>{info.location.label}</span>
+                    <span>{info.location.value}</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="p-6 bg-secondary/50 rounded-xl border border-border">
+            <div className="p-6 bg-card rounded-xl border border-border">
               <h4 className="font-semibold text-foreground mb-2">
-                💡 Dica Rápida
+                💡 {tip.title}
               </h4>
               <p className="text-sm text-muted-foreground">
-                Quanto mais detalhes você fornecer sobre seu projeto, melhor poderei 
-                entender suas necessidades e oferecer a solução ideal.
+                {tip.description}
               </p>
             </div>
           </div>
@@ -123,53 +124,37 @@ export default function Contact() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 mb-6">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Mensagem Enviada!</h3>
+                <h3 className="text-2xl font-bold mb-2">{formData.success.title}</h3>
                 <p className="text-muted-foreground">
-                  Obrigado por entrar em contato. Retornarei em breve!
+                  {formData.success.message}
                 </p>
               </div>
             ) : (
-              <form ref={form} onSubmit={sendEmail} className="space-y-6">
-                <div>
-                  <label htmlFor="nome" className="block text-sm font-medium text-muted-foreground mb-2">
-                    Nome
-                  </label>
-                  <Input
-                    type="text" id="nome" name="nome"
-                    required
-                    placeholder="Seu nome completo"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">
-                    Email
-                  </label>
-                  <Input
-                    type="email" id="email" name="email"
-                    required
-                    placeholder="seuemail@exemplo.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground mb-2">
-                    Assunto
-                  </label>
-                  <Input
-                    type="text" id="subject" name="subject"
-                    required
-                    placeholder="Assunto da mensagem"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="mensagem" className="block text-sm font-medium text-muted-foreground mb-2">
-                    Sua mensagem
-                  </label>
-                  <Textarea
-                    id="mensagem" name="mensagem" 
-                    required rows={5}
-                    placeholder="Conte-me como posso ajudar..."
-                  />
-                </div>
+              <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
+                {formData.fields.map((field) => (
+                  <div key={field.name}>
+                    <label htmlFor={field.name} className="block text-sm font-medium text-muted-foreground mb-2">
+                      {field.label}
+                    </label>
+                    {field.type === 'textarea' ? (
+                      <Textarea
+                        id={field.name}
+                        name={field.name}
+                        required
+                        rows={5}
+                        placeholder={field.placeholder}
+                      />
+                    ) : (
+                      <Input
+                        type={field.type}
+                        id={field.name}
+                        name={field.name}
+                        required
+                        placeholder={field.placeholder}
+                      />
+                    )}
+                  </div>
+                ))}
                 <Button
                   type="submit"
                   disabled={isFormSubmitting}
@@ -178,7 +163,7 @@ export default function Contact() {
                   {isFormSubmitting ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                   ) : (
-                    <>Enviar Mensagem</>
+                    <>{formData.submitButtonText}</>
                   )}
                 </Button>
               </form>

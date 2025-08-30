@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from "lucide-react";
 import Link from 'next/link';
+import { portfolioData } from '@/data/portfolio';
 
 interface HeaderProps {
   activeSection: string;
@@ -11,6 +12,7 @@ interface HeaderProps {
 
 export default function Header({ activeSection, sectionRefs }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { brandName, navItems } = portfolioData.header;
 
   const scrollToSection = (sectionId: string) => {
     setIsMenuOpen(false);
@@ -22,22 +24,14 @@ export default function Header({ activeSection, sectionRefs }: HeaderProps) {
       });
     }
   };
-  
-  const navItems = [
-    { id: 'sobre', label: 'Sobre' },
-    { id: 'habilidades', label: 'Habilidades' },
-    { id: 'projetos', label: 'Projetos' },
-    { id: 'depoimentos', label: 'Depoimentos'},
-    { id: 'contato', label: 'Contato' }
-  ];
 
   return (
     <header className="fixed w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold text-foreground flex items-center space-x-2">
-        <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-        <span className='text-primary'>{'< '}</span>
-            mvdevfullstack
+          <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className='text-primary'>{'< '}</span>
+            {brandName}
             <span className='text-primary'>{' />'}</span>
           </div>
         </Link>
