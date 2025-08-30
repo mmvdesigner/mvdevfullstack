@@ -67,11 +67,11 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className='text-foreground font-semibold block'>Email</span>
-                    <span>contato@messias.dev</span>
+                    <span>mvdevfullstack@gmail.com</span>
                   </div>
                 </a>
                 <a 
-                  href="tel:+5511999999999"
+                  href="tel:+5588999382994"
                   className="flex items-center text-muted-foreground hover:text-primary transition-colors group"
                 >
                   <div className="bg-secondary p-3 rounded-lg mr-4">
@@ -79,7 +79,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className='text-foreground font-semibold block'>Telefone</span>
-                    <span>+55 (11) 99999-9999</span>
+                    <span>+55 (88) 99938-2994</span>
                   </div>
                 </a>
                 <div className="flex items-center text-muted-foreground">
@@ -88,17 +88,19 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className='text-foreground font-semibold block'>Localização</span>
-                    <span>São Paulo, Brasil</span>
+                    <span>Acaraú-CE, Brasil</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className='bg-secondary rounded-lg p-4'>
-                <h4 className='font-bold flex items-center gap-2 mb-2'>
-                    <Send size={16} className='text-primary' />
-                    Siga-me
-                </h4>
-                <p className='text-sm text-muted-foreground'>Acompanhe meu trabalho e posts nas redes sociais para se manter atualizado.</p>
+            <div className="p-6 bg-secondary/50 rounded-xl border border-border">
+              <h4 className="font-semibold text-foreground mb-2">
+                💡 Dica Rápida
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Quanto mais detalhes você fornecer sobre seu projeto, melhor poderei 
+                entender suas necessidades e oferecer a solução ideal.
+              </p>
             </div>
           </div>
 

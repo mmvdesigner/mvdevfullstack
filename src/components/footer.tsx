@@ -9,7 +9,7 @@ export default function Footer() {
             <div>
                 <Link href="/" className="text-xl font-bold text-foreground flex items-center space-x-2 mb-4">
                     <span className='text-primary'>{'<'}</span>
-                    <span>messiasfullstack</span>
+                    <span>mvdevfullstack</span>
                     <span className='text-primary'>{'/>'}</span>
                 </Link>
                 <p className="text-sm">Desenvolvedor Full Stack apaixonado por criar experiências digitais que funcionam.</p>
@@ -26,7 +26,7 @@ export default function Footer() {
             <div>
                 <h4 className="font-semibold text-foreground mb-4">Conecte-se</h4>
                 <div className="flex space-x-4">
-                    <Link href="https://github.com/alexjohnson" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Link href="https://github.com/mmvdesigner" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                         <Github size={20} />
                     </Link>
                     <Link href="https://linkedin.com/in/alexjohnson" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -42,7 +42,7 @@ export default function Footer() {
             </div>
         </div>
         <div className="text-center text-sm text-muted-foreground border-t border-border mt-8 pt-6">
-            © {new Date().getFullYear()} Messias Vasconcelos. Todos os direitos reservados.
+            © {new Date().getFullYear()} mvdevfullstack. Todos os direitos reservados.
         </div>
       </div>
     </footer>

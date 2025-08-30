@@ -35,8 +35,11 @@ export default function Header({ activeSection, sectionRefs }: HeaderProps) {
     <header className="fixed w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold text-foreground flex items-center space-x-2">
-           <span className='text-primary'>mvdev</span>
-           <span>fullstack</span>
+        <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <span className='text-primary'>{'< '}</span>
+            mvdevfullstack
+            <span className='text-primary'>{' />'}</span>
+          </div>
         </Link>
         
         {/* Desktop Navigation */}
