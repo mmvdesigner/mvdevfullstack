@@ -272,6 +272,4 @@ export const portfolioData: PortfolioData = {
         copyright: "mvdevfullstack. Todos os direitos reservados."
     }
 };
-
-    
     
