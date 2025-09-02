@@ -99,7 +99,7 @@ export const portfolioData: PortfolioData = {
             technologies: ['React', 'Node.js', 'Firebase',],
             demoLink: '#',
             codeLink: 'https://github.com/mmvdesigner?tab=repositories',
-            imageUrl: 'https://i.ibb.co/M5SHH9Q/lider.png',
+            imageUrl: 'https://i.ibb.co/ynhs66mz/screencapture-lider.png',
             hint: 'admin platform',
           },
           {
@@ -109,7 +109,7 @@ export const portfolioData: PortfolioData = {
             technologies: ['Next.js', 'Firebase', 'E-mailjs', 'Tailwind'],
             demoLink: 'https://moradasacarau.clebertonsilvacorretor.com.br/',
             codeLink: 'https://github.com/mmvdesigner?tab=repositories',
-            imageUrl: 'https://i.ibb.co/yFWnSMZ/moradas.png',
+            imageUrl: 'https://i.ibb.co/SDmyDm96/screencapture-moradasacarau-home.png',
             hint: 'landpage',
           },
           {
@@ -119,7 +119,7 @@ export const portfolioData: PortfolioData = {
             technologies: ['PHP', 'Mysql', 'CodeIgniter'],
             demoLink: '#',
             codeLink: 'https://github.com/mmvdesigner?tab=repositories',
-            imageUrl: 'https://i.ibb.co/TKYVBNb/zmpescados.png',
+            imageUrl: 'https://i.ibb.co/TM0JjRg2/screencapture-syszmpescados.png',
             hint: 'admin platform',
           },
         ],
@@ -265,8 +265,8 @@ export const portfolioData: PortfolioData = {
             title: "Conecte-se",
             links: [
                 { name: "github", url: "https://github.com/mmvdesigner" },
-                { name: "linkedin", url: "https://linkedin.com/in/alexjohnson" },
-                { name: "twitter", url: "https://twitter.com/alexjohnson" },
+                { name: "linkedin", url: "https://linkedin.com/in/" },
+                { name: "twitter", url: "https://twitter.com/" },
                 { name: "dribbble", url: "#" },
             ]
         },
