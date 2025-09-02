@@ -26,7 +26,7 @@ export const portfolioData: PortfolioData = {
         ctaButtons: {
             primary: {
                 text: "Fale comigo sobre seu projeto",
-                link: "https://wa.me/55DD9XXXXXXXX?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
+                link: "https://wa.me/5588999382994?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
             },
             secondary: {
                 text: "Ver Projetos",
@@ -36,7 +36,7 @@ export const portfolioData: PortfolioData = {
         codeBlock: {
             fileName: "portfolio.tsx",
             variable: "developer",
-            name: "Seu Nome",
+            name: "Messias Vasconcelos",
             skills: ["React", "Node.js", "TypeScript"],
             passion: "Resolver problemas complexos"
         }
@@ -94,32 +94,32 @@ export const portfolioData: PortfolioData = {
         projects: [
           {
             id: 1,
-            title: 'E-commerce Platform',
+            title: 'Lider',
             description: 'Solução de e-commerce completa com integração de pagamento e gerenciamento de estoque em tempo real.',
             technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
             demoLink: '#',
             codeLink: '#',
-            imageUrl: 'https://picsum.photos/600/400',
+            imageUrl: 'https://i.ibb.co/mFTKKSg/lider.png',
             hint: 'e-commerce platform',
           },
           {
             id: 2,
-            title: 'Task Management App',
+            title: 'ZM Pescados',
             description: 'Aplicativo de gerenciamento de tarefas com autenticação, autorização e validação de dados.',
             technologies: ['Next.js', 'PostgreSQL', 'Auth.js', 'Tailwind'],
             demoLink: '#',
             codeLink: '#',
-            imageUrl: 'https://picsum.photos/600/401',
+            imageUrl: 'https://i.ibb.co/hRJLPRT/zmpescados.png',
             hint: 'task app',
           },
           {
             id: 3,
-            title: 'Analytics Dashboard',
+            title: 'Moradas',
             description: 'Dashboard de monitoramento em tempo real para métricas de servidor e status de implantação.',
             technologies: ['React', 'Golang', 'InfluxDB', 'Grafana'],
             demoLink: '#',
             codeLink: '#',
-            imageUrl: 'https://picsum.photos/600/402',
+            imageUrl: 'https://i.ibb.co/3mByqz8/moradas.png',
             hint: 'devops dashboard',
           },
         ],
@@ -272,3 +272,5 @@ export const portfolioData: PortfolioData = {
         copyright: "mvdevfullstack. Todos os direitos reservados."
     }
 };
+
+    
