@@ -89,6 +89,7 @@ export interface PortfolioData {
             hint: string;
         }[];
         viewAllButtonText: string;
+        viewAllButtonLink: string;
     };
     experience: {
         title: string;

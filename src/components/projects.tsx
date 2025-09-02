@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { portfolioData } from '@/data/portfolio';
 
 export default function Projects() {
-  const { title, description, projects, viewAllButtonText } = portfolioData.projects;
+  const { title, description, projects, viewAllButtonText, viewAllButtonLink } = portfolioData.projects;
 
   return (
     <section id="projetos" className="py-20">
@@ -79,9 +79,11 @@ export default function Projects() {
         </div>
 
         <div className='text-center mt-16'>
+          <Link href={viewAllButtonLink} target="_blank" rel="noopener noreferrer">
             <Button variant="outline">
                 {viewAllButtonText}
             </Button>
+          </Link>
         </div>
       </div>
     </section>
