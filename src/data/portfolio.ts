@@ -99,7 +99,7 @@ export const portfolioData: PortfolioData = {
             technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
             demoLink: '#',
             codeLink: '#',
-            imageUrl: 'https://i.ibb.co/mFTKKSg/lider.png',
+            imageUrl: 'https://i.ibb.co/M5SHH9Q/lider.png',
             hint: 'e-commerce platform',
           },
           {
@@ -109,7 +109,7 @@ export const portfolioData: PortfolioData = {
             technologies: ['Next.js', 'PostgreSQL', 'Auth.js', 'Tailwind'],
             demoLink: '#',
             codeLink: '#',
-            imageUrl: 'https://i.ibb.co/hRJLPRT/zmpescados.png',
+            imageUrl: 'https://i.ibb.co/TKYVBNb/zmpescados.png',
             hint: 'task app',
           },
           {
@@ -119,7 +119,7 @@ export const portfolioData: PortfolioData = {
             technologies: ['React', 'Golang', 'InfluxDB', 'Grafana'],
             demoLink: '#',
             codeLink: '#',
-            imageUrl: 'https://i.ibb.co/3mByqz8/moradas.png',
+            imageUrl: 'https://i.ibb.co/yFWnSMZ/moradas.png',
             hint: 'devops dashboard',
           },
         ],
